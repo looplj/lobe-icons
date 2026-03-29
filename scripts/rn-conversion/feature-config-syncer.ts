@@ -122,9 +122,13 @@ class FeatureConfigSyncer {
     );
 
     // 5. 特殊导入处理
-    // 移除 @lobehub/ui 的 DivProps 导入
+    // 移除 @lobehub/ui 或 @/base 的 DivProps 导入
     transformed = transformed.replaceAll(
       /import\s*{\s*DivProps\s*}\s*from\s*'@lobehub\/ui';\s*\n/g,
+      '',
+    );
+    transformed = transformed.replaceAll(
+      /import\s*{\s*DivProps\s*}\s*from\s*'@\/base';\s*\n/g,
       '',
     );
 

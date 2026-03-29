@@ -1,6 +1,5 @@
-import { Icon } from '@lobehub/ui';
-import { ProviderIcon } from '@lobehub/ui/icons';
 import { cssVar } from 'antd-style';
+import { Boxes } from 'lucide-react';
 import { type CSSProperties, memo } from 'react';
 
 interface DefaultIconProps {
@@ -11,9 +10,7 @@ interface DefaultIconProps {
 }
 
 const DefaultIcon = memo<DefaultIconProps>(({ color, size = 12, ...rest }) => {
-  return (
-    <Icon color={color || cssVar.colorTextDescription} icon={ProviderIcon} size={size} {...rest} />
-  );
+  return <Boxes color={color || cssVar.colorTextDescription} size={size} {...rest} />;
 });
 
 export default DefaultIcon;

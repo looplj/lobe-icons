@@ -1,4 +1,3 @@
-import { Icon } from '@lobehub/ui';
 import { cssVar } from 'antd-style';
 import { Bot } from 'lucide-react';
 import { CSSProperties, memo } from 'react';
@@ -10,8 +9,8 @@ interface DefaultIconProps {
   style?: CSSProperties;
 }
 
-const DefaultAvatar = memo<DefaultIconProps>(({ color, size = 12, ...rest }) => {
-  return <Icon color={color || cssVar.colorTextDescription} icon={Bot} size={size} {...rest} />;
+const DefaultIcon = memo<DefaultIconProps>(({ color, size = 12, ...rest }) => {
+  return <Bot color={color || cssVar.colorTextDescription} size={size} {...rest} />;
 });
 
-export default DefaultAvatar;
+export default DefaultIcon;

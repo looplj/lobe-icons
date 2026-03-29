@@ -1,5 +1,4 @@
-import matter from 'gray-matter';
-import { readFileSync, writeFileSync } from 'node:fs';
+import { writeFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 
 import * as Icons from '../../src/icons';
@@ -9,15 +8,13 @@ const rootDir = resolve(__dirname, '../..');
 
 const run = () => {
   const list = Object.entries(Icons).map(([key, Icon]: [string, any]) => {
-    const md = readFileSync(resolve(rootDir, 'src', key, 'index.md'), 'utf8');
-    const { data } = matter(md);
     return {
       color: Icon.colorPrimary,
       colorGradient: Icon?.colorGradient,
-      desc: data?.description,
+      desc: Icon.title,
       docsUrl: customKebabCase(key),
-      fullTitle: data?.title,
-      group: String(data?.group?.title || data?.group).toLowerCase(),
+      fullTitle: Icon.title,
+      group: 'model',
       id: key,
       param: {
         hasAvatar: !!Icon?.Avatar,

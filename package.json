@@ -37,15 +37,10 @@
     "build:toc": "bun scripts/tocWorkflow/index.ts",
     "build:watch": "father dev",
     "ci": "npm run lint && npm run type-check",
-    "clean": "rm -r es lib dist coverage .dumi/tmp .eslintcache node_modules/.cache",
-    "dev": "dumi dev",
-    "docs:build": "dumi build",
-    "docs:build-analyze": "ANALYZE=1 dumi build",
-    "docs:dev": "dumi dev",
+    "clean": "rm -r es lib dist coverage .eslintcache node_modules/.cache",
     "doctor": "father doctor",
     "lint": "eslint \"{src,tests}/**/*.{js,jsx,ts,tsx}\" --fix",
     "lint:circular": "dpdm src/**/*.{ts,tsx}  --warning false  --tree false  --exit-code circular:1  -T true",
-    "lint:md": "remark . --quiet --frail --output",
     "lint:style": "stylelint \"{src,tests}/**/*.{js,jsx,ts,tsx}\" --fix",
     "prepack": "clean-package",
     "postpack": "clean-package restore",
@@ -55,8 +50,8 @@
     "pull": "git pull",
     "release": "semantic-release",
     "release:static": "multi-semantic-release --sequential-prepare --debug",
-    "setup": "dumi setup",
-    "start": "npm run dev",
+    "setup": "echo 'Setup complete'",
+    "start": "npm run build:watch",
     "sync:cnpm": "cnpm sync @lobehub/icons-static-svg @lobehub/icons-static-png @lobehub/icons-static-webp",
     "sync:md": "npm run build:toc && tsx scripts/readmeWorkflow/index.ts",
     "test": "vitest --passWithNoTests",
@@ -66,10 +61,6 @@
     "vectorizer": "tsx scripts/vectorizer/index.ts"
   },
   "lint-staged": {
-    "*.md": [
-      "remark --quiet --output --",
-      "prettier --write --no-error-on-unmatched-pattern"
-    ],
     "*.json": [
       "prettier --write --no-error-on-unmatched-pattern"
     ],
@@ -93,8 +84,6 @@
     "@babel/runtime": "^7.29.2",
     "@commitlint/cli": "^19.8.1",
     "@lobehub/lint": "^1.26.3",
-    "@lobehub/ui": "^5.5.3",
-    "@qiwi/multi-semantic-release": "^7.1.2",
     "@testing-library/react": "^16.3.2",
     "@types/pangu": "^4.0.2",
     "@types/react": "^19.2.14",
@@ -108,8 +97,6 @@
     "cross-env": "^10.1.0",
     "dotenv": "^17.3.1",
     "dpdm": "^3.15.1",
-    "dumi": "^2.4.23",
-    "dumi-theme-lobehub": "^4.1.0",
     "es-toolkit": "^1.45.1",
     "eslint": "^8.57.1",
     "father": "^4.6.17",
@@ -138,8 +125,6 @@
     "vitest": "^3.2.4"
   },
   "peerDependencies": {
-    "@lobehub/ui": "^5.0.0",
-    "antd": "^6.1.1",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
   },

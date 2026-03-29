@@ -1,4 +1,4 @@
-import { Tag, TagProps } from '@lobehub/ui';
+import { Tag, TagProps } from '@/base';
 import { memo } from 'react';
 
 import ModelIcon from '../ModelIcon';
